@@ -1,0 +1,506 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="Chart.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<title>
+			GIE Analysis
+		</title>
+	</head>
+	<body>
+		<p>
+		<% for(var index = 0; index<candidate.length; index++){ %>
+			<button onclick="getChart(
+				[
+						<%=candidate[index].Hardware_IoT.march.scale%>,
+				    	<%=candidate[index].AI_ML_Data_Science.march.scale%>,
+				    	<%=candidate[index].Software_Application_Development.march.scale%>, 
+				    	<%=candidate[index].Industry_Product_Design.march.scale%>,
+				    	<%=candidate[index].Software_Platforms.march.scale%>,
+				    	<%=candidate[index].Programming_Application_Platform.march.scale%>,
+				    	<%=candidate[index].IP.march.scale%>,
+				    	<%=candidate[index].Innovation.march.scale%>
+				], 
+				[
+						<%=candidate[index].Hardware_IoT.may.scale%>,
+				    	<%=candidate[index].AI_ML_Data_Science.may.scale%>,
+				    	<%=candidate[index].Software_Application_Development.may.scale%>, 
+				    	<%=candidate[index].Industry_Product_Design.may.scale%>,
+				    	<%=candidate[index].Software_Platforms.may.scale%>,
+				    	<%=candidate[index].Programming_Application_Platform.may.scale%>,
+				    	<%=candidate[index].IP.may.scale%>,
+				    	<%=candidate[index].Innovation.may.scale%>
+				],
+
+				' <%=candidate[index].name%> ' ,
+
+				[ <%=candidate[index].Hardware_IoT.march.kra%>] ,
+		    	[ <%=candidate[index].AI_ML_Data_Science.march.kra%>] ,
+		    	[ <%=candidate[index].Software_Application_Development.march.kra%>] , 
+		    	[ <%=candidate[index].Industry_Product_Design.march.kra%>] ,
+		    	[ <%=candidate[index].Software_Platforms.march.kra%>] ,
+		    	[ <%=candidate[index].Programming_Application_Platform.march.kra%>] ,
+		    	[ <%=candidate[index].IP.march.kra%>] ,
+		    	[ <%=candidate[index].Innovation.march.kra%>] ,
+
+
+									)"> 
+										<%= candidate[index].name%>
+			</button>
+		<% } %>
+		</p>
+
+
+		<h3 id="name"></h3>
+
+		<div class="row">
+		  <div class="col">
+		    <div class="card">
+		      <div class="card-body">
+		        <p>Overall</p>
+				<canvas  id="bar-chart"></canvas>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+		<div class="row">
+		  <div class="col-sm-6">
+		    <div class="card">
+		      <div class="card-body">
+		        <p>Hardware/IoT</p>
+				<canvas  id="hwi-radar"></canvas>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="col-sm-6">
+		    <div class="card">
+		      <div class="card-body">
+		        <p>AI/ML & Data Science</p>
+				<canvas  id="amd-radar"></canvas>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+		<div class="row">
+		  <div class="col-sm-6">
+		    <div class="card">
+		      <div class="card-body">
+		        <p>Software/Application Development</p>
+				<canvas  id="sad-radar"></canvas>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="col-sm-6">
+		    <div class="card">
+		      <div class="card-body">
+		        <p>Industry/Product Design</p>
+				<canvas  id="ipd-radar"></canvas>
+		      </div>
+		    </div>
+		  </div>
+		</div>	
+
+		<div class="row">
+		  <div class="col-sm-6">
+		    <div class="card">
+		      <div class="card-body">
+		        <p>Software Platforms</p>
+				<canvas  id="sps-radar"></canvas>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="col-sm-6">
+		    <div class="card">
+		      <div class="card-body">
+		        <p>Programming Application Platform</p>
+				<canvas  id="pap-radar"></canvas>
+		      </div>
+		    </div>
+		  </div>
+		</div>	
+
+		<div class="row">
+		  <div class="col-sm-6">
+		    <div class="card">
+		      <div class="card-body">
+		        <p>IP</p>
+				<canvas  id="ips-radar"></canvas>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="col-sm-6">
+		    <div class="card">
+		      <div class="card-body">
+		        <p>Innovation</p>
+				<canvas  id="ino-radar"></canvas>
+		      </div>
+		    </div>
+		  </div>
+		</div>	
+
+		<script src="Chart.js"></script>
+		<script type="text/javascript">
+		function getChart(marchList, mayList, name, hwi_march_kra, amd_march_kra, sad_march_kra, ipd_march_kra, sps_march_kra, pap_march_kra, ips_march_kra, ino_march_kra)
+		{
+			console.log(hwi_march_kra);
+			document.getElementById('name').innerHTML = name + " GIE DATA";
+			var ctx = document.getElementById('bar-chart');
+			var ct2 = document.getElementById('hwi-radar');
+			var ct3 = document.getElementById('amd-radar');
+			var ct4 = document.getElementById('sad-radar');
+			var ct5 = document.getElementById('ipd-radar');
+			var ct6 = document.getElementById('sps-radar');
+			var ct7 = document.getElementById('pap-radar');
+			var ct8 = document.getElementById('ips-radar');
+			var ct9 = document.getElementById('ino-radar');
+			var myBarChart = new Chart(ctx, {
+										    type: 'bar',
+										    data: 
+										    {
+        										labels: [
+        													'Hardware/IoT', 
+        													'AI/ML & Data Science', 
+        													'Software/Application Development', 
+        													'Industry/Product Design', 
+        													'Software Platforms', 
+        													'Programming Application Platform', 
+        													'IP', 
+        													'Innovation'
+        												],
+										        datasets: 
+										        [
+										        {
+										            label: 'MARCH SCORE',
+										            data: marchList,
+										            backgroundColor: [
+										                'rgba(255, 99, 132, 0.2)',
+										                'rgba(54, 162, 235, 0.2)',
+										                'rgba(255, 206, 86, 0.2)',
+										                'rgba(75, 192, 192, 0.2)',
+										                'rgba(153, 102, 255, 0.2)',
+										                'rgba(255, 159, 64, 0.2)'
+										            ],
+										            borderColor: [
+										                'rgba(255, 99, 132, 1)',
+										                'rgba(54, 162, 235, 1)',
+										                'rgba(255, 206, 86, 1)',
+										                'rgba(75, 192, 192, 1)',
+										                'rgba(153, 102, 255, 1)',
+										                'rgba(255, 159, 64, 1)'
+										            ],
+										            borderWidth: 1
+										        }, 
+										        {
+										            label: 'MAY SCORE',
+										            data: mayList,
+										            backgroundColor: [
+										                'rgba(255, 99, 132, 0.2)',
+										                'rgba(54, 162, 235, 0.2)',
+										                'rgba(255, 206, 86, 0.2)',
+										                'rgba(75, 192, 192, 0.2)',
+										                'rgba(153, 102, 255, 0.2)',
+										                'rgba(255, 159, 64, 0.2)'
+										            ],
+										            borderColor: [
+										                'rgba(255, 99, 132, 1)',
+										                'rgba(54, 162, 235, 1)',
+										                'rgba(255, 206, 86, 1)',
+										                'rgba(75, 192, 192, 1)',
+										                'rgba(153, 102, 255, 1)',
+										                'rgba(255, 159, 64, 1)'
+										            ],
+										            borderWidth: 1
+										        }, 
+    											]
+    										},
+    										options: 
+    										{
+    											hover: {
+											        	// Overrides the global setting
+											            // mode: 'point'
+											            showTooltips: false
+											        },
+											        scales: {
+											            yAxes: [{
+											            		ticks: {
+											            			beginAtZero: true,
+											            			stepSize: 1,
+											            			max: 10,
+											            		}
+											            		}
+											            		]
+											        	}
+									    	}
+										});
+
+			var hwi_radar = new Chart(ct2, {
+		    type: 'radar',
+		    data: {
+    			labels: 	['Electronic Circuit Design ( Laws & Principles )', 'PCB Designing ', 
+    						'Embedded Hardware Platform', 'Sensor & Actuators', 
+    						'Module Integration with uP and uC (GSM,GPS,bluetooth,etc)', 
+    						'System Interfaces implementation - Digital Communication Protocols (I2C, SPI, CAN, etc)', 
+    						'Data Acquisition Techniques - Data transmission techniques & Physical Layer (LoRa, Zigbee, etc)', 
+    						'Basics of Networking', 'Power Design for Circuits'],
+			    datasets: [
+			    	{
+			    		label: "MARCH",
+			        	data: hwi_march_kra
+			    	},
+			    	// {
+			    	// 	label: "MAY"
+			     //    	data: [20, 10, 4, 2]
+			    	// },
+			    	]
+				},
+			options:
+				{
+					scale: {
+							ticks: {
+				        			min: 0,
+				        			stepSize: 10,
+				        			max: 50,
+        					}		
+					}
+		    	}
+			});
+
+			var amd_radar = new Chart(ct3, {
+		    type: 'radar',
+		    data: {
+    			labels: [
+    						'Data Modelling and Evaluation',
+    						'Probability & Statistics',
+    						'Applied Math & Algorithms',
+    						'Applied Machine Learning Models ( Regression, Classification )',
+    						'Distributed Computing',
+    						'Edge Computing'],
+			    datasets: [
+			    	{
+			    		label: "MARCH",
+			        	data: amd_march_kra,
+			    	},
+			    	// {
+			    		// label: "MAY"
+			      //   	data: [20, 10, 4, 2]
+			    	// },
+			    	]
+				},
+			options:
+				{
+					scale: {
+							ticks: {
+				        			min: 0,
+				        			stepSize: 10,
+				        			max: 50,
+        					}		
+					}
+		    	}
+			});
+
+			var sad_radar = new Chart(ct4, {
+		    type: 'radar',
+		    data: {
+    			labels: [
+    						'Application Architecture Design', 
+    						'Mobile Application Development ( Android & iOS )',
+    						'Cloud Platforms (Database, Analytics, Dashboards, AWS, Google, IBM Watson )',
+    						'Web Application Development',	
+    						'Linux & Mac Packaging and Deployment ( Snap, Brew, Docker )'
+    					],
+			    datasets: [
+			    	{
+			    		label: "MARCH",
+			        	data: sad_march_kra,
+			    	},
+			    	// {
+			    		// label: "MAY"
+			      //   	data: [20, 10, 4, 2]
+			    	// },
+			    	]
+				},
+			options:
+				{
+					scale: {
+							ticks: {
+				        			min: 0,
+				        			stepSize: 10,
+				        			max: 50,
+        					}		
+					}
+		    	}
+			});
+
+			var ipd_radar = new Chart(ct5, {
+		    type: 'radar',
+		    data: {
+    			labels: [
+    						'Rapid Prototyping ( 3D-Printer, Laser Cutter )',
+    						'Principles of Industrial Design, Standards, Processes & Compliance',	
+    						'UI/UX Design',
+    						'CAD Design (Solid Works/Fusion360/Catia)',
+    						'Analysis of Mechanical Design ( Simualtion Tests, Meshing )',
+    					],
+			    datasets: [
+			    	{
+			    		label: "MARCH",
+			        	data: ipd_march_kra,
+			    	},
+			    	// {
+			    	// 	label: "MAY"
+			     //    	data: [20, 10, 4, 2]
+			    	// },
+			    	]
+				},
+			options:
+				{
+					scale: {
+							ticks: {
+				        			min: 0,
+				        			stepSize: 10,
+				        			max: 50,
+        					}		
+					}
+		    	}
+			});
+
+			var sps_radar = new Chart(ct6, {
+		    type: 'radar',
+		    data: {
+    			labels: [
+    						'EAGLE PCB',
+    						'PSIM/MultiSIM',	
+    						'Simulation/Graphical Programming - LabVIEW',	
+    						'MATLAB',	
+    						'TABLEAU',
+    						'Google Analytics, TIBCO SpotFire',
+    					],
+			    datasets: [
+			    	{
+			    		label: "MARCH",
+			        	data: sps_march_kra,
+			    	},
+			    	// {
+			    	// 	// label: "MAY"
+			     //    	// data: [20, 10, 4, 2]
+			    	// },
+			    	]
+				},
+			options:
+				{
+					scale: {
+							ticks: {
+				        			min: 0,
+				        			stepSize: 10,
+				        			max: 50,
+        					}		
+					}
+		    	}
+			});
+
+			var pap_radar = new Chart(ct7, {
+		    type: 'radar',
+		    data: {
+    			labels: [
+    						'Defining Problem, Problem Decomposition and Planning Code (Architecture, Pseudocode)',
+    						'Computer Science Fundamentals (Syntax, Variables, Structures)',	
+    						'Programming Techniques (Object Oriented Programming, Programming Bottlenecks, Multi-threading, Queuing, Synchronisation)',
+    						'Programming Languages Known (C,CPP,Java, Python, etc)',
+    					],
+			    datasets: [
+			    	{
+			    		label: "MARCH",
+			        	data: pap_march_kra,
+			    	},
+			    	// {
+			    	// 	label: "MAY"
+			     //    	data: [20, 10, 4, 2]
+			    	// },
+			    	]
+				},
+			options:
+				{
+					scale: {
+							ticks: {
+				        			min: 0,
+				        			stepSize: 10,
+				        			max: 50,
+        					}		
+					}
+		    	}
+			});
+
+			var ips_radar = new Chart(ct8, {
+		    type: 'radar',
+		    data: {
+    			labels: [
+    						'IP Exploration & Patent Search',	
+    						'Patent Drafting',
+    					],
+			    datasets: [
+			    	{
+			    		label: "MARCH",
+			        	data: ips_march_kra
+			    	},
+			    	// {
+			    	// 	label: "MAY"
+			     //    	data: [20, 10, 4, 2]
+			    	// },
+			    	]
+				},
+			options:
+				{
+					scale: {
+							ticks: {
+				        			min: 0,
+				        			stepSize: 10,
+				        			max: 50,
+        					}		
+					}
+		    	}
+			});		
+
+
+			var ino_radar = new Chart(ct9, {
+		    type: 'radar',
+		    data: {
+    			labels: [
+    						'Problem Validation	Customer Discovery',
+    						'Crafting & Testing Value Proposition',	
+    						'Solution Alternatives Exploration (Variants & Velocity)',
+    						'Product Vision & Pitch',
+    						'Grant Proposal Writing',
+    						'Milestone Planning and Reporting',
+    					],
+			    datasets: [
+			    	{
+			    		label: "MARCH",
+			        	data: ino_march_kra
+			    	},
+			    	// {
+			    	// 	label: "MAY"
+			     //    	data: [20, 10, 4, 2]
+			    	// },
+			    	]
+				},
+			options:
+				{
+					scale: {
+							ticks: {
+				        			min: 0,
+				        			stepSize: 10,
+				        			max: 50,
+        					}		
+					}
+		    	}
+			});				
+}
+		</script>
+	
+	</body>
+
+</html>

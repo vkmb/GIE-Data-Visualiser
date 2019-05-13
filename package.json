@@ -1,0 +1,17 @@
+{
+  "name": "gie",
+  "version": "1.0.0",
+  "description": "GIE DATA VISUALIZER",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kumm",
+  "license": "ISC",
+  "dependencies": {
+    "chart.js": "^2.8.0",
+    "csv-reader": "^1.0.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  }
+}
