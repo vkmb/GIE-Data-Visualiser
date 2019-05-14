@@ -46,6 +46,16 @@
 		    	[ <%=candidate[index].Innovation.march.kra%>] ,
 
 
+		    	[ <%=candidate[index].Hardware_IoT.may.kra%>] ,
+		    	[ <%=candidate[index].AI_ML_Data_Science.may.kra%>] ,
+		    	[ <%=candidate[index].Software_Application_Development.may.kra%>] , 
+		    	[ <%=candidate[index].Industry_Product_Design.may.kra%>] ,
+		    	[ <%=candidate[index].Software_Platforms.may.kra%>] ,
+		    	[ <%=candidate[index].Programming_Application_Platform.may.kra%>] ,
+		    	[ <%=candidate[index].IP.may.kra%>] ,
+		    	[ <%=candidate[index].Innovation.may.kra%>] ,
+
+
 									)"> 
 										<%= candidate[index].name%>
 			</button>
@@ -55,98 +65,102 @@
 
 		<h3 id="name"></h3>
 
-		<div class="row">
-		  <div class="col">
-		    <div class="card">
-		      <div class="card-body">
-		        <p>Overall</p>
-				<canvas  id="bar-chart"></canvas>
-		      </div>
-		    </div>
-		  </div>
+		<div class="container">
+			<div class="row">
+			  <div class="col-12">
+			    <div class="card">
+			      <div class="card-body">
+			        <p>Overall</p>
+					<canvas  id="bar-chart"></canvas>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+			<div class="row">
+			  <div class="col-6">
+			    <div class="card">
+			      <div class="card-body">
+			        <p>Hardware/IoT</p>
+					<canvas  id="hwi-radar"></canvas>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="col-6">
+			    <div class="card">
+			      <div class="card-body">
+			        <p>AI/ML & Data Science</p>
+					<canvas  id="amd-radar"></canvas>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+			<div class="row">
+			  <div class="col-6">
+			    <div class="card">
+			      <div class="card-body">
+			        <p>Software/Application Development</p>
+					<canvas  id="sad-radar"></canvas>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="col-6">
+			    <div class="card">
+			      <div class="card-body">
+			        <p>Industry/Product Design</p>
+					<canvas  id="ipd-radar"></canvas>
+			      </div>
+			    </div>
+			  </div>
+			</div>	
+
+			<div class="row">
+			  <div class="col-6">
+			    <div class="card">
+			      <div class="card-body">
+			        <p>Software Platforms</p>
+					<canvas  id="sps-radar"></canvas>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="col-6">
+			    <div class="card">
+			      <div class="card-body">
+			        <p>Programming Application Platform</p>
+					<canvas  id="pap-radar"></canvas>
+			      </div>
+			    </div>
+			  </div>
+			</div>	
+
+			<div class="row">
+			  <div class="col-6">
+			    <div class="card">
+			      <div class="card-body">
+			        <p>IP</p>
+					<canvas  id="ips-radar"></canvas>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="col-6">
+			    <div class="card">
+			      <div class="card-body">
+			        <p>Innovation</p>
+					<canvas  id="ino-radar"></canvas>
+			      </div>
+			    </div>
+			  </div>
+			</div>	
 		</div>
-
-		<div class="row">
-		  <div class="col-sm-6">
-		    <div class="card">
-		      <div class="card-body">
-		        <p>Hardware/IoT</p>
-				<canvas  id="hwi-radar"></canvas>
-		      </div>
-		    </div>
-		  </div>
-		  <div class="col-sm-6">
-		    <div class="card">
-		      <div class="card-body">
-		        <p>AI/ML & Data Science</p>
-				<canvas  id="amd-radar"></canvas>
-		      </div>
-		    </div>
-		  </div>
-		</div>
-
-		<div class="row">
-		  <div class="col-sm-6">
-		    <div class="card">
-		      <div class="card-body">
-		        <p>Software/Application Development</p>
-				<canvas  id="sad-radar"></canvas>
-		      </div>
-		    </div>
-		  </div>
-		  <div class="col-sm-6">
-		    <div class="card">
-		      <div class="card-body">
-		        <p>Industry/Product Design</p>
-				<canvas  id="ipd-radar"></canvas>
-		      </div>
-		    </div>
-		  </div>
-		</div>	
-
-		<div class="row">
-		  <div class="col-sm-6">
-		    <div class="card">
-		      <div class="card-body">
-		        <p>Software Platforms</p>
-				<canvas  id="sps-radar"></canvas>
-		      </div>
-		    </div>
-		  </div>
-		  <div class="col-sm-6">
-		    <div class="card">
-		      <div class="card-body">
-		        <p>Programming Application Platform</p>
-				<canvas  id="pap-radar"></canvas>
-		      </div>
-		    </div>
-		  </div>
-		</div>	
-
-		<div class="row">
-		  <div class="col-sm-6">
-		    <div class="card">
-		      <div class="card-body">
-		        <p>IP</p>
-				<canvas  id="ips-radar"></canvas>
-		      </div>
-		    </div>
-		  </div>
-		  <div class="col-sm-6">
-		    <div class="card">
-		      <div class="card-body">
-		        <p>Innovation</p>
-				<canvas  id="ino-radar"></canvas>
-		      </div>
-		    </div>
-		  </div>
-		</div>	
-
+		
 		<script src="Chart.js"></script>
 		<script type="text/javascript">
-		function getChart(marchList, mayList, name, hwi_march_kra, amd_march_kra, sad_march_kra, ipd_march_kra, sps_march_kra, pap_march_kra, ips_march_kra, ino_march_kra)
+		function getChart(marchList, mayList, name, hwi_march_kra, amd_march_kra, sad_march_kra, ipd_march_kra, sps_march_kra, pap_march_kra, ips_march_kra, ino_march_kra, hwi_may_kra, amd_may_kra, sad_may_kra, ipd_may_kra, sps_may_kra, pap_may_kra, ips_may_kra, ino_may_kra)
 		{
-			console.log(hwi_march_kra);
+			ips_may_kra.push(0)
+			ips_march_kra.push(0)
+			console.log(ips_may_kra.length);
 			document.getElementById('name').innerHTML = name + " GIE DATA";
 			var ctx = document.getElementById('bar-chart');
 			var ct2 = document.getElementById('hwi-radar');
@@ -219,11 +233,13 @@
     										},
     										options: 
     										{
+    											events: ['click'],
     											hover: {
 											        	// Overrides the global setting
 											            // mode: 'point'
 											            showTooltips: false
 											        },
+
 											        scales: {
 											            yAxes: [{
 											            		ticks: {
@@ -240,32 +256,41 @@
 			var hwi_radar = new Chart(ct2, {
 		    type: 'radar',
 		    data: {
-    			labels: 	['Electronic Circuit Design ( Laws & Principles )', 'PCB Designing ', 
+    			labels: 	['Electronic Circuit Design','PCB Designing ', 
     						'Embedded Hardware Platform', 'Sensor & Actuators', 
-    						'Module Integration with uP and uC (GSM,GPS,bluetooth,etc)', 
-    						'System Interfaces implementation - Digital Communication Protocols (I2C, SPI, CAN, etc)', 
-    						'Data Acquisition Techniques - Data transmission techniques & Physical Layer (LoRa, Zigbee, etc)', 
+    						'Module Integration with uP and uC', 
+    						'System Interfaces implementation', 
+    						'Data Acquisition Techniques', 
     						'Basics of Networking', 'Power Design for Circuits'],
 			    datasets: [
 			    	{
 			    		label: "MARCH",
-			        	data: hwi_march_kra
+			        	data: hwi_march_kra,
+			        	backgroundColor: 'rgba(255, 99, 132, 0.2)',
+			        	borderColor: 'rgba(255, 99, 132, 1)',
+			        	borderWidth: 1,
+
 			    	},
-			    	// {
-			    	// 	label: "MAY"
-			     //    	data: [20, 10, 4, 2]
-			    	// },
+			    	{
+			    		label: "MAY",
+			        	data: hwi_may_kra,
+			        	backgroundColor: 'rgba(132, 99, 255, 0.2)',
+			        	borderColor: 'rgba(132, 99, 255, 1)',
+			        	borderWidth: 1,
+			    	},
 			    	]
 				},
 			options:
 				{
+					events: ['click'],
 					scale: {
 							ticks: {
 				        			min: 0,
 				        			stepSize: 10,
 				        			max: 50,
         					}		
-					}
+					},
+					
 		    	}
 			});
 
@@ -276,22 +301,29 @@
     						'Data Modelling and Evaluation',
     						'Probability & Statistics',
     						'Applied Math & Algorithms',
-    						'Applied Machine Learning Models ( Regression, Classification )',
+    						'Applied Machine Learning Models',
     						'Distributed Computing',
     						'Edge Computing'],
 			    datasets: [
 			    	{
 			    		label: "MARCH",
 			        	data: amd_march_kra,
+			        	backgroundColor: 'rgba(255, 99, 132, 0.2)',
+			        	borderColor: 'rgba(255, 99, 132, 1)',
+			        	borderWidth: 1,
 			    	},
-			    	// {
-			    		// label: "MAY"
-			      //   	data: [20, 10, 4, 2]
-			    	// },
+			    	{
+			    		label: "MAY",
+			        	data: amd_may_kra,
+			        	backgroundColor: 'rgba(132, 99, 255, 0.2)',
+			        	borderColor: 'rgba(132, 99, 255, 1)',
+			        	borderWidth: 1,
+			    	},
 			    	]
 				},
 			options:
 				{
+					events: ['click'],
 					scale: {
 							ticks: {
 				        			min: 0,
@@ -307,24 +339,31 @@
 		    data: {
     			labels: [
     						'Application Architecture Design', 
-    						'Mobile Application Development ( Android & iOS )',
-    						'Cloud Platforms (Database, Analytics, Dashboards, AWS, Google, IBM Watson )',
+    						'Mobile Application Development',
+    						'Cloud Platforms',
     						'Web Application Development',	
-    						'Linux & Mac Packaging and Deployment ( Snap, Brew, Docker )'
+    						'Linux & Mac Packaging and Deployment'
     					],
 			    datasets: [
 			    	{
 			    		label: "MARCH",
 			        	data: sad_march_kra,
+			        	backgroundColor: 'rgba(255, 99, 132, 0.2)',
+			        	borderColor: 'rgba(255, 99, 132, 1)',
+			        	borderWidth: 1,
 			    	},
-			    	// {
-			    		// label: "MAY"
-			      //   	data: [20, 10, 4, 2]
-			    	// },
+			    	{
+			    		label: "MAY",
+			        	data: sad_may_kra,
+			        	backgroundColor: 'rgba(132, 99, 255, 0.2)',
+			        	borderColor: 'rgba(132, 99, 255, 1)',
+			        	borderWidth: 1,
+			    	},
 			    	]
 				},
 			options:
 				{
+					events: ['click'],
 					scale: {
 							ticks: {
 				        			min: 0,
@@ -339,25 +378,32 @@
 		    type: 'radar',
 		    data: {
     			labels: [
-    						'Rapid Prototyping ( 3D-Printer, Laser Cutter )',
+    						'Rapid Prototyping',
     						'Principles of Industrial Design, Standards, Processes & Compliance',	
     						'UI/UX Design',
-    						'CAD Design (Solid Works/Fusion360/Catia)',
-    						'Analysis of Mechanical Design ( Simualtion Tests, Meshing )',
+    						'CAD Design',
+    						'Analysis of Mechanical Design',
     					],
 			    datasets: [
 			    	{
 			    		label: "MARCH",
 			        	data: ipd_march_kra,
+			        	backgroundColor: 'rgba(255, 99, 132, 0.2)',
+			        	borderColor: 'rgba(255, 99, 132, 1)',
+			        	borderWidth: 1,
 			    	},
-			    	// {
-			    	// 	label: "MAY"
-			     //    	data: [20, 10, 4, 2]
-			    	// },
+			    	{
+			    		label: "MAY",
+			        	data: ipd_may_kra,
+			        	backgroundColor: 'rgba(132, 99, 255, 0.2)',
+			        	borderColor: 'rgba(132, 99, 255, 1)',
+			        	borderWidth: 1,
+			    	},
 			    	]
 				},
 			options:
 				{
+					events: ['click'],
 					scale: {
 							ticks: {
 				        			min: 0,
@@ -374,7 +420,7 @@
     			labels: [
     						'EAGLE PCB',
     						'PSIM/MultiSIM',	
-    						'Simulation/Graphical Programming - LabVIEW',	
+    						'LabVIEW',	
     						'MATLAB',	
     						'TABLEAU',
     						'Google Analytics, TIBCO SpotFire',
@@ -383,15 +429,22 @@
 			    	{
 			    		label: "MARCH",
 			        	data: sps_march_kra,
+			        	backgroundColor: 'rgba(255, 99, 132, 0.2)',
+			        	borderColor: 'rgba(255, 99, 132, 1)',
+			        	borderWidth: 1,
 			    	},
-			    	// {
-			    	// 	// label: "MAY"
-			     //    	// data: [20, 10, 4, 2]
-			    	// },
+			    	{
+			    		label: "MAY",
+			        	data: sps_may_kra,
+			        	backgroundColor: 'rgba(132, 99, 255, 0.2)',
+			        	borderColor: 'rgba(132, 99, 255, 1)',
+			        	borderWidth: 1,
+			    	},
 			    	]
 				},
 			options:
 				{
+					events: ['click'],
 					scale: {
 							ticks: {
 				        			min: 0,
@@ -406,24 +459,31 @@
 		    type: 'radar',
 		    data: {
     			labels: [
-    						'Defining Problem, Problem Decomposition and Planning Code (Architecture, Pseudocode)',
-    						'Computer Science Fundamentals (Syntax, Variables, Structures)',	
-    						'Programming Techniques (Object Oriented Programming, Programming Bottlenecks, Multi-threading, Queuing, Synchronisation)',
-    						'Programming Languages Known (C,CPP,Java, Python, etc)',
+    						'Defining Problem, Problem Decomposition and Planning Code',
+    						'Computer Science Fundamentals',	
+    						'Programming Techniques',
+    						'Programming Languages Known',
     					],
 			    datasets: [
 			    	{
 			    		label: "MARCH",
 			        	data: pap_march_kra,
+			        	backgroundColor: 'rgba(255, 99, 132, 0.2)',
+			        	borderColor: 'rgba(255, 99, 132, 1)',
+			        	borderWidth: 1,
 			    	},
-			    	// {
-			    	// 	label: "MAY"
-			     //    	data: [20, 10, 4, 2]
-			    	// },
+			    	{
+			    		label: "MAY",
+			        	data: pap_may_kra,
+			        	backgroundColor: 'rgba(132, 99, 255, 0.2)',
+			        	borderColor: 'rgba(132, 99, 255, 1)',
+			        	borderWidth: 1,
+			    	},
 			    	]
 				},
 			options:
 				{
+					events: ['click'],
 					scale: {
 							ticks: {
 				        			min: 0,
@@ -440,20 +500,28 @@
     			labels: [
     						'IP Exploration & Patent Search',	
     						'Patent Drafting',
+    						'Keyword Search'
     					],
 			    datasets: [
 			    	{
 			    		label: "MARCH",
-			        	data: ips_march_kra
+			        	data: ips_march_kra,
+			        	backgroundColor: 'rgba(255, 99, 132, 0.2)',
+			        	borderColor: 'rgba(255, 99, 132, 1)',
+			        	borderWidth: 1,
 			    	},
-			    	// {
-			    	// 	label: "MAY"
-			     //    	data: [20, 10, 4, 2]
-			    	// },
+			    	{
+			    		label: "MAY",
+			        	data: ips_may_kra,
+			        	backgroundColor: 'rgba(132, 99, 255, 0.2)',
+			        	borderColor: 'rgba(132, 99, 255, 1)',
+			        	borderWidth: 1,
+			    	},
 			    	]
 				},
 			options:
 				{
+					events: ['click'],
 					scale: {
 							ticks: {
 				        			min: 0,
@@ -471,7 +539,7 @@
     			labels: [
     						'Problem Validation	Customer Discovery',
     						'Crafting & Testing Value Proposition',	
-    						'Solution Alternatives Exploration (Variants & Velocity)',
+    						'Solution Alternatives Exploration',
     						'Product Vision & Pitch',
     						'Grant Proposal Writing',
     						'Milestone Planning and Reporting',
@@ -479,16 +547,23 @@
 			    datasets: [
 			    	{
 			    		label: "MARCH",
-			        	data: ino_march_kra
+			        	data: ino_march_kra,
+			        	backgroundColor: 'rgba(255, 99, 132, 0.2)',
+			        	borderColor: 'rgba(255, 99, 132, 1)',
+			        	borderWidth: 1,
 			    	},
-			    	// {
-			    	// 	label: "MAY"
-			     //    	data: [20, 10, 4, 2]
-			    	// },
+			    	{
+			    		label: "MAY",
+			        	data: ino_may_kra,
+			        	backgroundColor: 'rgba(132, 99, 255, 0.2)',
+			        	borderColor: 'rgba(132, 99, 255, 1)',
+			        	borderWidth: 1,
+			    	},
 			    	]
 				},
 			options:
 				{
+					events: ['click'],
 					scale: {
 							ticks: {
 				        			min: 0,

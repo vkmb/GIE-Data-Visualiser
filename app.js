@@ -12,7 +12,7 @@ var gieDataList = [];
 
 var inputStream = fs.createReadStream('data.csv', 'utf8');
 var inputStream2 = fs.createReadStream('march_kra_data.csv', 'utf8');
-// var inputStream3 = fs.createReadStream('kra_may_data.csv', 'utf8'); 
+var inputStream3 = fs.createReadStream('may_kra_data.csv', 'utf8'); 
 
 inputStream
     .pipe(CsvReadableStream({ parseNumbers: true, parseBooleans: true, trim: true }))
@@ -88,22 +88,22 @@ inputStream2
     .pipe(CsvReadableStream({ parseNumbers: true, parseBooleans: true, trim: true }))
     .on('data', function (row) {
     	
-    	console.log(row[0],gieDataList[index].name);
+    	// console.log(row[0],gieDataList[index].name);
     	if (row[0] == gieDataList[index].name)
     	{ 
 
 
-			gieDataList[index].Hardware_IoT.march.kra = row.slice(2, 11),
-	    	gieDataList[index].AI_ML_Data_Science.march.kra= row.slice(11, 17),
-	    	gieDataList[index].Software_Application_Development.march.kra= row.slice(17, 22), 
-	    	gieDataList[index].Industry_Product_Design.march.kra= row.slice(22, 27),
-	    	gieDataList[index].Software_Platforms.march.kra= row.slice(27, 33),
-	    	gieDataList[index].Programming_Application_Platform.march.kra= row.slice(33, 37),
-	    	gieDataList[index].IP.march.kra= row.slice(37, 39),
-	    	gieDataList[index].Innovation.march.kra= row.slice(39, ),
+			gieDataList[index].Hardware_IoT.march.kra = row.slice(2, 11);
+	    	gieDataList[index].AI_ML_Data_Science.march.kra= row.slice(11, 17);
+	    	gieDataList[index].Software_Application_Development.march.kra= row.slice(17, 22); 
+	    	gieDataList[index].Industry_Product_Design.march.kra= row.slice(22, 27);
+	    	gieDataList[index].Software_Platforms.march.kra= row.slice(27, 33);
+	    	gieDataList[index].Programming_Application_Platform.march.kra= row.slice(33, 37);
+	    	gieDataList[index].IP.march.kra= row.slice(37, 39);
+	    	gieDataList[index].Innovation.march.kra= row.slice(39, );
 
 
-        	console.log(row);
+        	// console.log(row);
         	// console.log(row[33], "----------");
         	
         
@@ -120,35 +120,33 @@ inputStream2
 
         // console.log(gieDataList[0]);
     });
+var index2 = 0;
+inputStream3
+    .pipe(CsvReadableStream({ parseNumbers: true, parseBooleans: true, trim: true }))
+    .on('data', function (row) {
+    	// console.log(row, gieDataList[1]);
+    	if (row[0] == gieDataList[index2].name)
+    	{ 
 
-// inputStream3
-//     .pipe(CsvReadableStream({ parseNumbers: true, parseBooleans: true, trim: true }))
-//     .on('data', function (row) {
-//     	int index = 0;
-//     	if (row[0][0] !== undefined and row[0] === gieDataList[index].name)
-//     	{ 
-
-// 			gieDataList[index].Hardware_IoT.may.kra = row.slice(2, 11),
-// 	    	gieDataList[index].AI_ML_Data_Science.may.kra= row.slice(11, 17),
-// 	    	gieDataList[index].Software_Application_Development.may.kra= row.slice(17, 22), 
-// 	    	gieDataList[index].Industry_Product_Design.may.kra= row.slice(22, 27),
-// 	    	gieDataList[index].Software_Platforms.may.kra= row.slice(27, 33),
-// 	    	gieDataList[index].Programming_Application_Platform.may.kra= row.slice(33, 37),
-// 	    	gieDataList[index].IP.may.kra= row.slice(37, 39),
-// 	    	gieDataList[index].Innovation.may.kra= row.slice(39, ),
+			gieDataList[index2].Hardware_IoT.may.kra = row.slice(2, 11);
+	    	gieDataList[index2].AI_ML_Data_Science.may.kra= row.slice(11, 17);
+	    	gieDataList[index2].Software_Application_Development.may.kra= row.slice(17, 22); 
+	    	gieDataList[index2].Industry_Product_Design.may.kra= row.slice(22, 27);
+	    	gieDataList[index2].Software_Platforms.may.kra= row.slice(27, 33);
+	    	gieDataList[index2].Programming_Application_Platform.may.kra= row.slice(33, 37);
+	    	gieDataList[index2].IP.may.kra= row.slice(37, 39);
+	    	gieDataList[index2].Innovation.may.kra= row.slice(39, );
 
 
-//         	// console.log(row[0]);
-//         	// console.log(row[33], "----------");
+        	// console.log(row[0]);
+        	// console.log(row[33], "----------");
 
-//     	}
-//     	index += 1;
-        
+    	}
+    	index2 = index2 + 1;
+    }).on('end', function (data) {
 
-//     })
-//     .on('end', function (data) {
-//         console.log("Found ", gieDataList.length, "records.");
-//     });
+        // console.log(gieDataList[0]);
+    });
 
 
 app.get('/', function(req,res)
