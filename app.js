@@ -5,7 +5,7 @@ var express = require('express'),
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-const port = 80;
+const port = 8080;
 
 var name = "Teste";
 var gieDataList = [];
