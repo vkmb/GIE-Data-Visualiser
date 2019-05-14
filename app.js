@@ -146,6 +146,8 @@ inputStream3
     }).on('end', function (data) {
 
         // console.log(gieDataList[0]);
+        
+        // gieDataList.push();
     });
 
 
