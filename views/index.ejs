@@ -10,9 +10,13 @@
 		</title>
 	</head>
 	<body>
+		<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Click to toggle Graduate Innovation Engineers List  
+  </button>
 		<div class="container rows-print-as-pages">
-			<div class="row">
-				<p>
+			<div class="collapse" id="collapseExample">
+  				<div class="card card-body">
+  					<p>
 				<% for(var index = 0; index<candidate.length; index++){ %>
 					<button onclick="getChart(
 						[
@@ -63,7 +67,12 @@
 					</button>
 				<% } %>
 				</p>
+  				</div>
 			</div>
+			
+
+				
+
 
 			<div class="row">
 			  <div class="col-12">
