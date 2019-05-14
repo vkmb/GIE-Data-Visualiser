@@ -5,7 +5,7 @@ var express = require('express'),
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-const port = 3000;
+const port = 80;
 
 var name = "Teste";
 var gieDataList = [];
@@ -146,7 +146,7 @@ inputStream3
     }).on('end', function (data) {
 
         // console.log(gieDataList[0]);
-        
+
         // gieDataList.push();
     });
 
