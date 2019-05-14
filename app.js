@@ -214,7 +214,7 @@ app.get('/', function(req,res)
 	}
 );
 
-app.listen(port, function()
+app.listen(process.env.PORT || port, function()
 	{
-		console.log("Listening on port number", port);
+		console.log("Listening on port number", process.env.PORT || port);
 	});
