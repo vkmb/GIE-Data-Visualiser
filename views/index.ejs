@@ -10,73 +10,73 @@
 		</title>
 	</head>
 	<body>
-		<p>
-		<% for(var index = 0; index<candidate.length; index++){ %>
-			<button onclick="getChart(
-				[
-						<%=candidate[index].Hardware_IoT.march.scale%>,
-				    	<%=candidate[index].AI_ML_Data_Science.march.scale%>,
-				    	<%=candidate[index].Software_Application_Development.march.scale%>, 
-				    	<%=candidate[index].Industry_Product_Design.march.scale%>,
-				    	<%=candidate[index].Software_Platforms.march.scale%>,
-				    	<%=candidate[index].Programming_Application_Platform.march.scale%>,
-				    	<%=candidate[index].IP.march.scale%>,
-				    	<%=candidate[index].Innovation.march.scale%>
-				], 
-				[
-						<%=candidate[index].Hardware_IoT.may.scale%>,
-				    	<%=candidate[index].AI_ML_Data_Science.may.scale%>,
-				    	<%=candidate[index].Software_Application_Development.may.scale%>, 
-				    	<%=candidate[index].Industry_Product_Design.may.scale%>,
-				    	<%=candidate[index].Software_Platforms.may.scale%>,
-				    	<%=candidate[index].Programming_Application_Platform.may.scale%>,
-				    	<%=candidate[index].IP.may.scale%>,
-				    	<%=candidate[index].Innovation.may.scale%>
-				],
+		<div class="container rows-print-as-pages">
+			<div class="row">
+				<p>
+				<% for(var index = 0; index<candidate.length; index++){ %>
+					<button onclick="getChart(
+						[
+								<%=candidate[index].Hardware_IoT.march.scale%>,
+						    	<%=candidate[index].AI_ML_Data_Science.march.scale%>,
+						    	<%=candidate[index].Software_Application_Development.march.scale%>, 
+						    	<%=candidate[index].Industry_Product_Design.march.scale%>,
+						    	<%=candidate[index].Software_Platforms.march.scale%>,
+						    	<%=candidate[index].Programming_Application_Platform.march.scale%>,
+						    	<%=candidate[index].IP.march.scale%>,
+						    	<%=candidate[index].Innovation.march.scale%>
+						], 
+						[
+								<%=candidate[index].Hardware_IoT.may.scale%>,
+						    	<%=candidate[index].AI_ML_Data_Science.may.scale%>,
+						    	<%=candidate[index].Software_Application_Development.may.scale%>, 
+						    	<%=candidate[index].Industry_Product_Design.may.scale%>,
+						    	<%=candidate[index].Software_Platforms.may.scale%>,
+						    	<%=candidate[index].Programming_Application_Platform.may.scale%>,
+						    	<%=candidate[index].IP.may.scale%>,
+						    	<%=candidate[index].Innovation.may.scale%>
+						],
 
-				' <%=candidate[index].name%> ' ,
+						' <%=candidate[index].name%> ' ,
 
-				[ <%=candidate[index].Hardware_IoT.march.kra%>] ,
-		    	[ <%=candidate[index].AI_ML_Data_Science.march.kra%>] ,
-		    	[ <%=candidate[index].Software_Application_Development.march.kra%>] , 
-		    	[ <%=candidate[index].Industry_Product_Design.march.kra%>] ,
-		    	[ <%=candidate[index].Software_Platforms.march.kra%>] ,
-		    	[ <%=candidate[index].Programming_Application_Platform.march.kra%>] ,
-		    	[ <%=candidate[index].IP.march.kra%>] ,
-		    	[ <%=candidate[index].Innovation.march.kra%>] ,
-
-
-		    	[ <%=candidate[index].Hardware_IoT.may.kra%>] ,
-		    	[ <%=candidate[index].AI_ML_Data_Science.may.kra%>] ,
-		    	[ <%=candidate[index].Software_Application_Development.may.kra%>] , 
-		    	[ <%=candidate[index].Industry_Product_Design.may.kra%>] ,
-		    	[ <%=candidate[index].Software_Platforms.may.kra%>] ,
-		    	[ <%=candidate[index].Programming_Application_Platform.may.kra%>] ,
-		    	[ <%=candidate[index].IP.may.kra%>] ,
-		    	[ <%=candidate[index].Innovation.may.kra%>] ,
+						[ <%=candidate[index].Hardware_IoT.march.kra%>] ,
+				    	[ <%=candidate[index].AI_ML_Data_Science.march.kra%>] ,
+				    	[ <%=candidate[index].Software_Application_Development.march.kra%>] , 
+				    	[ <%=candidate[index].Industry_Product_Design.march.kra%>] ,
+				    	[ <%=candidate[index].Software_Platforms.march.kra%>] ,
+				    	[ <%=candidate[index].Programming_Application_Platform.march.kra%>] ,
+				    	[ <%=candidate[index].IP.march.kra%>] ,
+				    	[ <%=candidate[index].Innovation.march.kra%>] ,
 
 
-									)"> 
-										<%= candidate[index].name%>
-			</button>
-		<% } %>
-		</p>
+				    	[ <%=candidate[index].Hardware_IoT.may.kra%>] ,
+				    	[ <%=candidate[index].AI_ML_Data_Science.may.kra%>] ,
+				    	[ <%=candidate[index].Software_Application_Development.may.kra%>] , 
+				    	[ <%=candidate[index].Industry_Product_Design.may.kra%>] ,
+				    	[ <%=candidate[index].Software_Platforms.may.kra%>] ,
+				    	[ <%=candidate[index].Programming_Application_Platform.may.kra%>] ,
+				    	[ <%=candidate[index].IP.may.kra%>] ,
+				    	[ <%=candidate[index].Innovation.may.kra%>] ,
 
 
-		<h3 id="name"></h3>
+											)"> 
+												<%= candidate[index].name%>
+					</button>
+				<% } %>
+				</p>
+			</div>
 
-		<div class="container">
 			<div class="row">
 			  <div class="col-12">
 			    <div class="card">
 			      <div class="card-body">
+			      	<h3 id="name"></h3>
 			        <p>Overall</p>
 					<canvas  id="bar-chart"></canvas>
 			      </div>
 			    </div>
 			  </div>
 			</div>
-
+		
 			<div class="row">
 			  <div class="col-6">
 			    <div class="card">
@@ -138,7 +138,7 @@
 			  <div class="col-6">
 			    <div class="card">
 			      <div class="card-body">
-			        <p>IP</p>
+			        <p>Intellectual Property</p>
 					<canvas  id="ips-radar"></canvas>
 			      </div>
 			    </div>
@@ -182,7 +182,7 @@
         													'Industry/Product Design', 
         													'Software Platforms', 
         													'Programming Application Platform', 
-        													'IP', 
+        													'Intellectual Property', 
         													'Innovation'
         												],
 										        datasets: 

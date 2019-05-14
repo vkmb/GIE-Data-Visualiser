@@ -1,0 +1,12 @@
+@import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css';
+@media print {
+  .rows-print-as-pages .row {
+    page-break-before: always;
+  }
+  /* include this style if you want the first row to be on the same page as whatever precedes it */
+  /*
+  .rows-print-as-pages .row:first-child {
+    page-break-before: avoid;
+  }
+  */
+}

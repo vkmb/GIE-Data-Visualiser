@@ -10,144 +10,201 @@ const port = 8080;
 var name = "Teste";
 var gieDataList = [];
 
-var inputStream = fs.createReadStream('data.csv', 'utf8');
-var inputStream2 = fs.createReadStream('march_kra_data.csv', 'utf8');
-var inputStream3 = fs.createReadStream('may_kra_data.csv', 'utf8'); 
+var marchData = fs.createReadStream('march_data_cleaned.csv', 'utf8');
+var mayData = fs.createReadStream('may_data_cleaned.csv', 'utf8');
 
-inputStream
+
+marchData
     .pipe(CsvReadableStream({ parseNumbers: true, parseBooleans: true, trim: true }))
     .on('data', function (row) {
-    	if (row[0][0] !== undefined)
+    	if (row[0]!== undefined)
     	{ 
     		var gieDataJson = {
-	"name":row[1],
-	"Hardware_IoT":
-		{"march":
-			{"level":row[2], "scale": parseInt(row[3]), 'kra':undefined}, 
-		"may":
-			{"level":row[4], "scale": parseInt(row[5]), 'kra':undefined},
-		},
-	"AI_ML_Data_Science":
-		{"march":
-			{"level":row[6], "scale": parseInt(row[7]), 'kra':undefined}, 
-		"may":
-			{"level":row[8], "scale": parseInt(row[9]), 'kra':undefined},
-		},
-	"Software_Application_Development":
-		{"march":
-			{"level":row[10], "scale": parseInt(row[11]), 'kra':undefined}, 
-		"may":
-			{"level":row[12], "scale": parseInt(row[13]), 'kra':undefined},
-		},
-	"Industry_Product_Design":
-		{"march":
-			{"level":row[14], "scale": parseInt(row[15]), 'kra':undefined}, 
-		"may":
-			{"level":row[16], "scale": parseInt(row[17]), 'kra':undefined},
-		},
-	"Software_Platforms":
-		{"march":
-			{"level":row[18], "scale": parseInt(row[19]), 'kra':undefined}, 
-		"may":
-			{"level":row[20], "scale": parseInt(row[21]), 'kra':undefined},
-		},
-	"Programming_Application_Platform":
-		{"march":
-			{"level":row[22], "scale": parseInt(row[23]), 'kra':undefined}, 
-		"may":
-			{"level":row[24], "scale": parseInt(row[25]), 'kra':undefined},
-		},
-	"IP":
-		{"march":
-			{"level":row[26], "scale": parseInt(row[27]), 'kra':undefined}, 
-		"may":
-			{"level":row[28], "scale": parseInt(row[29]), 'kra':undefined},
-		},
-	"Innovation":
-		{"march":
-			{"level":row[30], "scale": parseInt(row[31]), 'kra':undefined}, 
-		"may":
-			{"level":row[32], "scale": parseInt(row[33]), 'kra':undefined},
-		},
-};
+					"name":row[0],
+					"Hardware_IoT":
+						{"march":
+							{"scale": Number(row[10]), 'kra':row.slice(1, 10)}, 
+						"may":
+							{"scale": 0, 'kra':undefined},
+						},
+					"AI_ML_Data_Science":
+						{"march":
+							{"scale": Number(row[17]), 'kra':row.slice(11, 17)}, 
+						"may":
+							{"scale": 0, 'kra':undefined},
+						},
+					"Software_Application_Development":
+						{"march":
+							{"scale": Number(row[23]), 'kra':row.slice(18, 23)}, 
+						"may":
+							{"scale": 0, 'kra':undefined},
+						},
+					"Industry_Product_Design":
+						{"march":
+							{"scale": Number(row[29]), 'kra':row.slice(24, 29)}, 
+						"may":
+							{"scale": 0, 'kra':undefined},
+						},
+					"Software_Platforms":
+						{"march":
+							{"scale": Number(row[36]), 'kra':row.slice(30, 36)}, 
+						"may":
+							{"scale": 0, 'kra':undefined},
+						},
+					"Programming_Application_Platform":
+						{"march":
+							{"scale": Number(row[41]), 'kra':row.slice(37, 41)}, 
+						"may":
+							{"scale": 0, 'kra':undefined},
+						},
+					"IP":
+						{"march":
+							{"scale": Number(row[44]), 'kra':row.slice(42, 44)}, 
+						"may":
+							{"scale": 0, 'kra':undefined},
+						},
+					"Innovation":
+						{"march":
+							{"scale": Number(row[52]), 'kra':row.slice(45, 52)}, 
+						"may":
+							{"scale": 0, 'kra':undefined},
+						},
+					};
     		gieDataList.push(gieDataJson);
-
-        	// console.log(row[0]);
-        	// console.log(row[33], "----------");
-
     	}
-        
-
     })
     .on('end', function (data) {
-        console.log("Found ", gieDataList.length, "records.");
+    	// console.log(gieDataList);
+        // console.log("Found ", gieDataList.length, "records.");
     });
 
 var index = 0;
-inputStream2
+mayData
     .pipe(CsvReadableStream({ parseNumbers: true, parseBooleans: true, trim: true }))
     .on('data', function (row) {
     	
-    	// console.log(row[0],gieDataList[index].name);
-    	if (row[0] == gieDataList[index].name)
+    	
+    	if (row[0] == gieDataList[index]['name'])
     	{ 
 
 
-			gieDataList[index].Hardware_IoT.march.kra = row.slice(2, 11);
-	    	gieDataList[index].AI_ML_Data_Science.march.kra= row.slice(11, 17);
-	    	gieDataList[index].Software_Application_Development.march.kra= row.slice(17, 22); 
-	    	gieDataList[index].Industry_Product_Design.march.kra= row.slice(22, 27);
-	    	gieDataList[index].Software_Platforms.march.kra= row.slice(27, 33);
-	    	gieDataList[index].Programming_Application_Platform.march.kra= row.slice(33, 37);
-	    	gieDataList[index].IP.march.kra= row.slice(37, 39);
-	    	gieDataList[index].Innovation.march.kra= row.slice(39, );
-
-
-        	// console.log(row);
-        	// console.log(row[33], "----------");
-        	
+			gieDataList[index].Hardware_IoT.may.kra = row.slice(1, 10);
+			gieDataList[index].Hardware_IoT.may.scale = Number(row[10])
+	    	gieDataList[index].AI_ML_Data_Science.may.kra= row.slice(11, 17);
+	    	gieDataList[index].AI_ML_Data_Science.may.scale=Number(row[17]);
+	    	gieDataList[index].Software_Application_Development.may.kra= row.slice(18, 23); 
+	    	gieDataList[index].Software_Application_Development.may.scale=Number(row[23]) 
+	    	gieDataList[index].Industry_Product_Design.may.kra= row.slice(24, 29);
+	    	gieDataList[index].Industry_Product_Design.may.scale=Number(row[29])
+	    	gieDataList[index].Software_Platforms.may.kra= row.slice(30, 36);
+	    	gieDataList[index].Software_Platforms.may.scale=Number(row[36])
+	    	gieDataList[index].Programming_Application_Platform.may.kra= row.slice(37, 41);
+	    	gieDataList[index].Programming_Application_Platform.may.scale=Number(row[41])
+	    	gieDataList[index].IP.may.kra= row.slice(42, 44);
+	    	gieDataList[index].IP.may.scale=Number(row[44])
+	    	gieDataList[index].Innovation.may.kra= row.slice(45, 52);
+	    	gieDataList[index].Innovation.may.scale=Number(row[52]);       	
         
     	}
-    	
-    	index = index + 1;	
-
-    	
-    	
-        
+    	index += 1;	        
 
     })
     .on('end', function (data) {
+    	var toTal = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        var kra = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
 
-        // console.log(gieDataList[0]);
-    });
-var index2 = 0;
-inputStream3
-    .pipe(CsvReadableStream({ parseNumbers: true, parseBooleans: true, trim: true }))
-    .on('data', function (row) {
-    	// console.log(row, gieDataList[1]);
-    	if (row[0] == gieDataList[index2].name)
-    	{ 
+        for (ps of gieDataList){
+        	var localIndex = 0;
+        	for (key of Object.keys(ps)){
+        		if (key == "name") continue;
+        		toTal[localIndex] += ps[key]["march"]["scale"];
+        		toTal[localIndex+1] += ps[key]["may"]["scale"];
+        		kra[localIndex].push(ps[key]["march"]["kra"]);
+        		kra[localIndex+1].push(ps[key]["may"]["kra"]);
+        		localIndex += 2;
+        	}
+        }
 
-			gieDataList[index2].Hardware_IoT.may.kra = row.slice(2, 11);
-	    	gieDataList[index2].AI_ML_Data_Science.may.kra= row.slice(11, 17);
-	    	gieDataList[index2].Software_Application_Development.may.kra= row.slice(17, 22); 
-	    	gieDataList[index2].Industry_Product_Design.may.kra= row.slice(22, 27);
-	    	gieDataList[index2].Software_Platforms.may.kra= row.slice(27, 33);
-	    	gieDataList[index2].Programming_Application_Platform.may.kra= row.slice(33, 37);
-	    	gieDataList[index2].IP.may.kra= row.slice(37, 39);
-	    	gieDataList[index2].Innovation.may.kra= row.slice(39, );
+        var sumKra = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
+        for (eachKraIndex of Object.keys(kra)){
+        	var init = true;
+        	for (eachCandidate of kra[eachKraIndex]){
+        		// console.log(eachCandidate);
+        		if (eachCandidate !== undefined){
+        			for (var index = 0; index < eachCandidate.length ; index++){
+	        			if (init) {
+	        				sumKra[eachKraIndex] = eachCandidate;
+	        				init = false;
+	        			}
+	        			else{
+	        				sumKra[eachKraIndex][index] += eachCandidate[index];
+	        			}	
+        			}
+        		}
+        		
+        		
+        	}
+        	for (eachLevelIndex of Object.keys(sumKra[eachKraIndex])){
+        		sumKra[eachKraIndex][eachLevelIndex] = sumKra[eachKraIndex][eachLevelIndex]/kra[eachKraIndex].length;
+        	}
+        }
 
+        var gieDataJson = {
+				"name":"Titans",
+				"Hardware_IoT":
+					{"march":
+						{"scale": parseInt(toTal[0]/gieDataList.length), 'kra':sumKra[0]}, 
+					"may":
+						{"scale": parseInt(toTal[1]/gieDataList.length), 'kra':sumKra[1]},
+					},
+				"AI_ML_Data_Science":
+					{"march":
+						{"scale": parseInt(toTal[2]/gieDataList.length), 'kra':sumKra[2]}, 
+					"may":
+						{"scale": parseInt(toTal[3]/gieDataList.length), 'kra':sumKra[3]},
+					},
+				"Software_Application_Development":
+					{"march":
+						{"scale": parseInt(toTal[4]/gieDataList.length), 'kra':sumKra[4]}, 
+					"may":
+						{"scale": parseInt(toTal[5]/gieDataList.length), 'kra':sumKra[5]},
+					},
+				"Industry_Product_Design":
+					{"march":
+						{"scale": parseInt(toTal[6]/gieDataList.length), 'kra':sumKra[6]}, 
+					"may":
+						{"scale": parseInt(toTal[7]/gieDataList.length), 'kra':sumKra[7]},
+					},
+				"Software_Platforms":
+					{"march":
+						{"scale": parseInt(toTal[8]/gieDataList.length), 'kra':sumKra[8]}, 
+					"may":
+						{"scale": parseInt(toTal[9]/gieDataList.length), 'kra':sumKra[9]},
+					},
+				"Programming_Application_Platform":
+					{"march":
+						{"scale": parseInt(toTal[10]/gieDataList.length), 'kra':sumKra[10]}, 
+					"may":
+						{"scale": parseInt(toTal[11]/gieDataList.length), 'kra':sumKra[11]},
+					},
+				"IP":
+					{"march":
+						{"scale": parseInt(toTal[12]/gieDataList.length), 'kra':sumKra[12]}, 
+					"may":
+						{"scale": parseInt(toTal[13]/gieDataList.length), 'kra':sumKra[13]},
+					},
+				"Innovation":
+					{"march":
+						{"scale": parseInt(toTal[14]/gieDataList.length), 'kra':sumKra[14]}, 
+					"may":
+						{"scale": parseInt(toTal[15]/gieDataList.length), 'kra':sumKra[15]},
+					},
+			};
 
-        	// console.log(row[0]);
-        	// console.log(row[33], "----------");
+        gieDataList.push(gieDataJson);
+        console.log(gieDataList.length, "records has been parsed");
+        
 
-    	}
-    	index2 = index2 + 1;
-    }).on('end', function (data) {
-
-        // console.log(gieDataList[0]);
-
-        // gieDataList.push();
     });
 
 
