@@ -4,7 +4,7 @@
   "description": "GIE DATA VISUALIZER",
   "main": "index.js",
   "scripts": {
-    "test": "node app.js",
+    "test": "node -v",
     "start": "node app.js"
   },
   "author": "kumm",
