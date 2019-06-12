@@ -20,46 +20,67 @@
 				<% for(var index = 0; index<candidate.length; index++){ %>
 					<button onclick="getChart(
 						[
-								<%=candidate[index].Hardware_IoT.march.scale%>,
-						    	<%=candidate[index].AI_ML_Data_Science.march.scale%>,
-						    	<%=candidate[index].Software_Application_Development.march.scale%>, 
-						    	<%=candidate[index].Industry_Product_Design.march.scale%>,
-						    	<%=candidate[index].Software_Platforms.march.scale%>,
-						    	<%=candidate[index].Programming_Application_Platform.march.scale%>,
-						    	<%=candidate[index].IP.march.scale%>,
-						    	<%=candidate[index].Innovation.march.scale%>
+								<%=candidate[index].Hardware_IoT.feb.scale%>,
+						    	<%=candidate[index].AI_ML_Data_Science.feb.scale%>,
+						    	<%=candidate[index].Software_Application_Development.feb.scale%>, 
+						    	<%=candidate[index].Industry_Product_Design.feb.scale%>,
+						    	<%=candidate[index].Software_Platforms.feb.scale%>,
+						    	<%=candidate[index].Programming_Application_Platform.feb.scale%>,
+						    	<%=candidate[index].IP.feb.scale%>,
+						    	<%=candidate[index].Innovation.feb.scale%>
 						], 
+
 						[
-								<%=candidate[index].Hardware_IoT.may.scale%>,
-						    	<%=candidate[index].AI_ML_Data_Science.may.scale%>,
-						    	<%=candidate[index].Software_Application_Development.may.scale%>, 
-						    	<%=candidate[index].Industry_Product_Design.may.scale%>,
-						    	<%=candidate[index].Software_Platforms.may.scale%>,
-						    	<%=candidate[index].Programming_Application_Platform.may.scale%>,
-						    	<%=candidate[index].IP.may.scale%>,
-						    	<%=candidate[index].Innovation.may.scale%>
+								<%=candidate[index].Hardware_IoT.april.scale%>,
+						    	<%=candidate[index].AI_ML_Data_Science.april.scale%>,
+						    	<%=candidate[index].Software_Application_Development.april.scale%>, 
+						    	<%=candidate[index].Industry_Product_Design.april.scale%>,
+						    	<%=candidate[index].Software_Platforms.april.scale%>,
+						    	<%=candidate[index].Programming_Application_Platform.april.scale%>,
+						    	<%=candidate[index].IP.april.scale%>,
+						    	<%=candidate[index].Innovation.april.scale%>
+						],
+
+						[
+								<%=candidate[index].Hardware_IoT.june.scale%>,
+						    	<%=candidate[index].AI_ML_Data_Science.june.scale%>,
+						    	<%=candidate[index].Software_Application_Development.june.scale%>, 
+						    	<%=candidate[index].Industry_Product_Design.june.scale%>,
+						    	<%=candidate[index].Software_Platforms.june.scale%>,
+						    	<%=candidate[index].Programming_Application_Platform.june.scale%>,
+						    	<%=candidate[index].IP.june.scale%>,
+						    	<%=candidate[index].Innovation.june.scale%>
 						],
 
 						' <%=candidate[index].name%> ' ,
 
-						[ <%=candidate[index].Hardware_IoT.march.kra%>] ,
-				    	[ <%=candidate[index].AI_ML_Data_Science.march.kra%>] ,
-				    	[ <%=candidate[index].Software_Application_Development.march.kra%>] , 
-				    	[ <%=candidate[index].Industry_Product_Design.march.kra%>] ,
-				    	[ <%=candidate[index].Software_Platforms.march.kra%>] ,
-				    	[ <%=candidate[index].Programming_Application_Platform.march.kra%>] ,
-				    	[ <%=candidate[index].IP.march.kra%>] ,
-				    	[ <%=candidate[index].Innovation.march.kra%>] ,
+						[ <%=candidate[index].Hardware_IoT.feb.kra%>] ,
+				    	[ <%=candidate[index].AI_ML_Data_Science.feb.kra%>] ,
+				    	[ <%=candidate[index].Software_Application_Development.feb.kra%>] , 
+				    	[ <%=candidate[index].Industry_Product_Design.feb.kra%>] ,
+				    	[ <%=candidate[index].Software_Platforms.feb.kra%>] ,
+				    	[ <%=candidate[index].Programming_Application_Platform.feb.kra%>] ,
+				    	[ <%=candidate[index].IP.feb.kra%>] ,
+				    	[ <%=candidate[index].Innovation.feb.kra%>] ,
 
 
-				    	[ <%=candidate[index].Hardware_IoT.may.kra%>] ,
-				    	[ <%=candidate[index].AI_ML_Data_Science.may.kra%>] ,
-				    	[ <%=candidate[index].Software_Application_Development.may.kra%>] , 
-				    	[ <%=candidate[index].Industry_Product_Design.may.kra%>] ,
-				    	[ <%=candidate[index].Software_Platforms.may.kra%>] ,
-				    	[ <%=candidate[index].Programming_Application_Platform.may.kra%>] ,
-				    	[ <%=candidate[index].IP.may.kra%>] ,
-				    	[ <%=candidate[index].Innovation.may.kra%>] ,
+				    	[ <%=candidate[index].Hardware_IoT.april.kra%>] ,
+				    	[ <%=candidate[index].AI_ML_Data_Science.april.kra%>] ,
+				    	[ <%=candidate[index].Software_Application_Development.april.kra%>] , 
+				    	[ <%=candidate[index].Industry_Product_Design.april.kra%>] ,
+				    	[ <%=candidate[index].Software_Platforms.april.kra%>] ,
+				    	[ <%=candidate[index].Programming_Application_Platform.april.kra%>] ,
+				    	[ <%=candidate[index].IP.april.kra%>] ,
+				    	[ <%=candidate[index].Innovation.april.kra%>] ,
+
+				    	[ <%=candidate[index].Hardware_IoT.june.kra%>] ,
+				    	[ <%=candidate[index].AI_ML_Data_Science.june.kra%>] ,
+				    	[ <%=candidate[index].Software_Application_Development.june.kra%>] , 
+				    	[ <%=candidate[index].Industry_Product_Design.june.kra%>] ,
+				    	[ <%=candidate[index].Software_Platforms.june.kra%>] ,
+				    	[ <%=candidate[index].Programming_Application_Platform.june.kra%>] ,
+				    	[ <%=candidate[index].IP.june.kra%>] ,
+				    	[ <%=candidate[index].Innovation.june.kra%>] ,
 
 
 											)"> 
@@ -165,11 +186,11 @@
 		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
 		<script type="text/javascript">
-		function getChart(marchList, mayList, name, hwi_march_kra, amd_march_kra, sad_march_kra, ipd_march_kra, sps_march_kra, pap_march_kra, ips_march_kra, ino_march_kra, hwi_may_kra, amd_may_kra, sad_may_kra, ipd_may_kra, sps_may_kra, pap_may_kra, ips_may_kra, ino_may_kra)
+		function getChart(febList, aprilList, juneList, name, hwi_feb_kra, amd_feb_kra, sad_feb_kra, ipd_feb_kra, sps_feb_kra, pap_feb_kra, ips_feb_kra, ino_feb_kra, hwi_april_kra, amd_april_kra, sad_april_kra, ipd_april_kra, sps_april_kra, pap_april_kra, ips_april_kra, ino_april_kra, hwi_june_kra, amd_june_kra, sad_june_kra, ipd_june_kra, sps_june_kra, pap_june_kra, ips_june_kra, ino_june_kra)
 		{
-			ips_may_kra.push(0)
-			ips_march_kra.push(0)
-			console.log(ips_may_kra.length);
+			// ips_april_kra.push(0)
+			// ips_march_kra.push(0)
+			// console.log(ips_april_kra.length);
 			document.getElementById('name').innerHTML = name + " GIE DATA";
 			var ctx = document.getElementById('bar-chart');
 			var ct2 = document.getElementById('hwi-radar');
@@ -197,17 +218,24 @@
 										        datasets: 
 										        [
 										        {
-										            label: 'MARCH SCORE',
-										            data: marchList,
+										            label: 'FEB SCORE',
+										            data: febList,
 										            backgroundColor: 'rgba(255, 99, 132, 0.2)',
 										            borderColor:'rgba(255, 99, 132, 1)',
 										            borderWidth: 1
 										        }, 
 										        {
-										            label: 'MAY SCORE',
-										            data: mayList,
+										            label: 'APRIL SCORE',
+										            data: aprilList,
 										            backgroundColor: 'rgba(132, 99, 255, 0.2)',
-										            borderColor: 'rgba(132, 99, 255, 0.2)',
+										            borderColor: 'rgba(132, 99, 255, 1)',
+										            borderWidth: 1
+										        }, 
+										        {
+										            label: 'JUNE SCORE',
+										            data: juneList,
+										            backgroundColor: 'rgba(248, 148, 6, .2)',
+										            borderColor: 'rgba(248, 148, 6, 1)',
 										            borderWidth: 1
 										        }, 
     											]
@@ -245,19 +273,27 @@
     						'Basics of Networking', 'Power Design for Circuits'],
 			    datasets: [
 			    	{
-			    		label: "MARCH",
-			        	data: hwi_march_kra,
+			    		label: "FEB",
+			        	data: hwi_feb_kra,
 			        	backgroundColor: 'rgba(255, 99, 132, 0.2)',
 			        	borderColor: 'rgba(255, 99, 132, 1)',
 			        	borderWidth: 1,
 
 			    	},
 			    	{
-			    		label: "MAY",
-			        	data: hwi_may_kra,
+			    		label: "APRIL",
+			        	data: hwi_april_kra,
 			        	backgroundColor: 'rgba(132, 99, 255, 0.2)',
 			        	borderColor: 'rgba(132, 99, 255, 1)',
 			        	borderWidth: 1,
+			    	},
+			    	{
+			    		label: "JUNE",
+			        	data: hwi_june_kra,
+			        	backgroundColor: 'rgba(248, 148, 6, .2)',
+			        	borderColor: 'rgba(248, 148, 6, 1)',
+			        	borderWidth: 1,
+
 			    	},
 			    	]
 				},
@@ -287,17 +323,24 @@
     						'Edge Computing'],
 			    datasets: [
 			    	{
-			    		label: "MARCH",
-			        	data: amd_march_kra,
+			    		label: "FEB",
+			        	data: amd_feb_kra,
 			        	backgroundColor: 'rgba(255, 99, 132, 0.2)',
 			        	borderColor: 'rgba(255, 99, 132, 1)',
 			        	borderWidth: 1,
 			    	},
 			    	{
-			    		label: "MAY",
-			        	data: amd_may_kra,
+			    		label: "APRIL",
+			        	data: amd_april_kra,
 			        	backgroundColor: 'rgba(132, 99, 255, 0.2)',
 			        	borderColor: 'rgba(132, 99, 255, 1)',
+			        	borderWidth: 1,
+			    	},
+			    	{
+			    		label: "JUNE",
+			        	data: amd_june_kra,
+			        	backgroundColor: 'rgba(248, 148, 6, .2)',
+			        	borderColor: 'rgba(248, 148, 6, 1)',
 			        	borderWidth: 1,
 			    	},
 			    	]
@@ -327,17 +370,24 @@
     					],
 			    datasets: [
 			    	{
-			    		label: "MARCH",
-			        	data: sad_march_kra,
+			    		label: "FEB",
+			        	data: sad_feb_kra,
 			        	backgroundColor: 'rgba(255, 99, 132, 0.2)',
 			        	borderColor: 'rgba(255, 99, 132, 1)',
 			        	borderWidth: 1,
 			    	},
 			    	{
-			    		label: "MAY",
-			        	data: sad_may_kra,
+			    		label: "APRIL",
+			        	data: sad_april_kra,
 			        	backgroundColor: 'rgba(132, 99, 255, 0.2)',
 			        	borderColor: 'rgba(132, 99, 255, 1)',
+			        	borderWidth: 1,
+			    	},
+			    	{
+			    		label: "JUNE",
+			        	data: sad_june_kra,
+			        	backgroundColor: 'rgba(248, 148, 6, .2)',
+			        	borderColor: 'rgba(248, 148, 6, 1)',
 			        	borderWidth: 1,
 			    	},
 			    	]
@@ -367,17 +417,24 @@
     					],
 			    datasets: [
 			    	{
-			    		label: "MARCH",
-			        	data: ipd_march_kra,
+			    		label: "FEB",
+			        	data: ipd_feb_kra,
 			        	backgroundColor: 'rgba(255, 99, 132, 0.2)',
 			        	borderColor: 'rgba(255, 99, 132, 1)',
 			        	borderWidth: 1,
 			    	},
 			    	{
-			    		label: "MAY",
-			        	data: ipd_may_kra,
+			    		label: "APRIL",
+			        	data: ipd_april_kra,
 			        	backgroundColor: 'rgba(132, 99, 255, 0.2)',
 			        	borderColor: 'rgba(132, 99, 255, 1)',
+			        	borderWidth: 1,
+			    	},
+			    	{
+			    		label: "JUNE",
+			        	data: ipd_june_kra,
+			        	backgroundColor: 'rgba(248, 148, 6, .2)',
+			        	borderColor: 'rgba(248, 148, 6, 1)',
 			        	borderWidth: 1,
 			    	},
 			    	]
@@ -408,17 +465,24 @@
     					],
 			    datasets: [
 			    	{
-			    		label: "MARCH",
-			        	data: sps_march_kra,
+			    		label: "FEB",
+			        	data: sps_feb_kra,
 			        	backgroundColor: 'rgba(255, 99, 132, 0.2)',
 			        	borderColor: 'rgba(255, 99, 132, 1)',
 			        	borderWidth: 1,
 			    	},
 			    	{
-			    		label: "MAY",
-			        	data: sps_may_kra,
+			    		label: "APRIL",
+			        	data: sps_april_kra,
 			        	backgroundColor: 'rgba(132, 99, 255, 0.2)',
 			        	borderColor: 'rgba(132, 99, 255, 1)',
+			        	borderWidth: 1,
+			    	},
+			    	{
+			    		label: "JUNE",
+			        	data: sps_june_kra,
+			        	backgroundColor: 'rgba(248, 148, 6, .2)',
+			        	borderColor: 'rgba(248, 148, 6, 1)',
 			        	borderWidth: 1,
 			    	},
 			    	]
@@ -447,17 +511,24 @@
     					],
 			    datasets: [
 			    	{
-			    		label: "MARCH",
-			        	data: pap_march_kra,
+			    		label: "FEB",
+			        	data: pap_feb_kra,
 			        	backgroundColor: 'rgba(255, 99, 132, 0.2)',
 			        	borderColor: 'rgba(255, 99, 132, 1)',
 			        	borderWidth: 1,
 			    	},
 			    	{
-			    		label: "MAY",
-			        	data: pap_may_kra,
+			    		label: "APRIL",
+			        	data: pap_april_kra,
 			        	backgroundColor: 'rgba(132, 99, 255, 0.2)',
 			        	borderColor: 'rgba(132, 99, 255, 1)',
+			        	borderWidth: 1,
+			    	},
+			    	{
+			    		label: "JUNE",
+			        	data: pap_june_kra,
+			        	backgroundColor: 'rgba(248, 148, 6, .2)',
+			        	borderColor: 'rgba(248, 148, 6, 1)',
 			        	borderWidth: 1,
 			    	},
 			    	]
@@ -485,17 +556,24 @@
     					],
 			    datasets: [
 			    	{
-			    		label: "MARCH",
-			        	data: ips_march_kra,
+			    		label: "FEB",
+			        	data: ips_feb_kra,
 			        	backgroundColor: 'rgba(255, 99, 132, 0.2)',
 			        	borderColor: 'rgba(255, 99, 132, 1)',
 			        	borderWidth: 1,
 			    	},
 			    	{
-			    		label: "MAY",
-			        	data: ips_may_kra,
+			    		label: "APRIL",
+			        	data: ips_april_kra,
 			        	backgroundColor: 'rgba(132, 99, 255, 0.2)',
 			        	borderColor: 'rgba(132, 99, 255, 1)',
+			        	borderWidth: 1,
+			    	},
+			    	{
+			    		label: "JUNE",
+			        	data: ips_june_kra,
+			        	backgroundColor: 'rgba(248, 148, 6, .2)',
+			        	borderColor: 'rgba(248, 148, 6, 1)',
 			        	borderWidth: 1,
 			    	},
 			    	]
@@ -527,17 +605,24 @@
     					],
 			    datasets: [
 			    	{
-			    		label: "MARCH",
-			        	data: ino_march_kra,
+			    		label: "FEB",
+			        	data: ino_feb_kra,
 			        	backgroundColor: 'rgba(255, 99, 132, 0.2)',
 			        	borderColor: 'rgba(255, 99, 132, 1)',
 			        	borderWidth: 1,
 			    	},
 			    	{
-			    		label: "MAY",
-			        	data: ino_may_kra,
+			    		label: "APRIL",
+			        	data: ino_april_kra,
 			        	backgroundColor: 'rgba(132, 99, 255, 0.2)',
 			        	borderColor: 'rgba(132, 99, 255, 1)',
+			        	borderWidth: 1,
+			    	},
+			    	{
+			    		label: "JUNE",
+			        	data: ino_june_kra,
+			        	backgroundColor: 'rgba(248, 148, 6, .2)',
+			        	borderColor: 'rgba(248, 148, 6, 1)',
 			        	borderWidth: 1,
 			    	},
 			    	]
