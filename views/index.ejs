@@ -186,11 +186,11 @@
 		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
 		<script type="text/javascript">
-		function getChart(febList, aprilList, juneList, name, hwi_feb_kra, amd_feb_kra, sad_feb_kra, ipd_feb_kra, sps_feb_kra, pap_feb_kra, ips_feb_kra, ino_feb_kra, hwi_april_kra, amd_april_kra, sad_april_kra, ipd_april_kra, sps_april_kra, pap_april_kra, ips_april_kra, ino_april_kra, hwi_june_kra, amd_june_kra, sad_june_kra, ipd_june_kra, sps_june_kra, pap_june_kra, ips_june_kra, ino_june_kra)
+		function getChart(febList, aprilList, juneList, name, 
+			hwi_feb_kra, amd_feb_kra, sad_feb_kra, ipd_feb_kra, sps_feb_kra, pap_feb_kra, ips_feb_kra, ino_feb_kra, 
+			hwi_april_kra, amd_april_kra, sad_april_kra, ipd_april_kra, sps_april_kra, pap_april_kra, ips_april_kra, ino_april_kra, 
+			hwi_june_kra, amd_june_kra, sad_june_kra, ipd_june_kra, sps_june_kra, pap_june_kra, ips_june_kra, ino_june_kra)
 		{
-			// ips_april_kra.push(0)
-			// ips_march_kra.push(0)
-			// console.log(ips_april_kra.length);
 			document.getElementById('name').innerHTML = name + " GIE DATA";
 			var ctx = document.getElementById('bar-chart');
 			var ct2 = document.getElementById('hwi-radar');
@@ -596,7 +596,8 @@
 		    type: 'radar',
 		    data: {
     			labels: [
-    						'Problem Validation	Customer Discovery',
+    						'Problem Validation',
+    						'Customer Discovery',
     						'Crafting & Testing Value Proposition',	
     						'Solution Alternatives Exploration',
     						'Product Vision & Pitch',

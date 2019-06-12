@@ -80,7 +80,7 @@ febData
 					"IP":
 						{
 							"feb":
-							{"scale": Number(row[45]), 'kra':row.slice(42, 45)}, 
+							{"scale": Number(row[44]), 'kra':[Number(row[42]), Number(row[42]), Number(row[43])]}, 
 							"april":
 							{"scale": 0, 'kra':undefined},
 							"june":
@@ -89,7 +89,7 @@ febData
 					"Innovation":
 						{
 							"feb":
-							{"scale": Number(row[53]), 'kra':row.slice(46, 53)}, 
+							{"scale": Number(row[52]), 'kra':row.slice(45, 52)}, 
 							"april":
 							{"scale": 0, 'kra':undefined},
 							"june":
@@ -108,7 +108,6 @@ febData
 		    .pipe(CsvReadableStream({ parseNumbers: true, parseBooleans: true, trim: true }))
 		    .on('data', function (row) {
 		    	
-		    	// console.log(gieDataList[0].keys)
 		    	if (row[0] == gieDataList[index]['name'])
 		    	{ 
 
@@ -125,10 +124,10 @@ febData
 			    	gieDataList[index].Software_Platforms.april.scale=Number(row[36])
 			    	gieDataList[index].Programming_Application_Platform.april.kra= row.slice(37, 41);
 			    	gieDataList[index].Programming_Application_Platform.april.scale=Number(row[41])
-			    	gieDataList[index].IP.april.kra= row.slice(42, 45);
-			    	gieDataList[index].IP.april.scale=Number(row[45])
-			    	gieDataList[index].Innovation.april.kra= row.slice(46, 53);
-			    	gieDataList[index].Innovation.april.scale=Number(row[53]);       	
+			    	gieDataList[index].IP.april.kra= [Number(row[42]), Number(row[42]), Number(row[43])];
+			    	gieDataList[index].IP.april.scale=Number(row[44])
+			    	gieDataList[index].Innovation.april.kra= row.slice(45, 52);
+			    	gieDataList[index].Innovation.april.scale=Number(row[52]);       	
 		        
 		    	}
 		    	index += 1;	        
@@ -157,10 +156,10 @@ febData
 					    	gieDataList[index].Software_Platforms.june.scale=Number(row[36])
 					    	gieDataList[index].Programming_Application_Platform.june.kra= row.slice(37, 41);
 					    	gieDataList[index].Programming_Application_Platform.june.scale=Number(row[41])
-					    	gieDataList[index].IP.june.kra= row.slice(42, 45);
-					    	gieDataList[index].IP.june.scale=Number(row[45])
-					    	gieDataList[index].Innovation.june.kra= row.slice(46, 53);
-					    	gieDataList[index].Innovation.june.scale=Number(row[53]);       	
+					    	gieDataList[index].IP.june.kra= [Number(row[42]), Number(row[42]), Number(row[43])];
+					    	gieDataList[index].IP.june.scale=Number(row[44])
+					    	gieDataList[index].Innovation.june.kra= row.slice(45, 52);
+					    	gieDataList[index].Innovation.june.scale=Number(row[52]);       	
 				        
 				    	}
 				    	index += 1;	        
@@ -184,11 +183,11 @@ febData
 				        	}
 				        }
 
-				        var sumKra = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
+				        var sumKra = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
 				        for (eachKraIndex of Object.keys(kra)){
+				        	// console.log(kra[eachKraIndex])
 				        	var init = true;
 				        	for (eachCandidate of kra[eachKraIndex]){
-				        		// console.log(eachCandidate);
 				        		if (eachCandidate !== undefined){
 				        			for (var index = 0; index < eachCandidate.length ; index++){
 					        			if (init) {
@@ -197,8 +196,10 @@ febData
 					        			}
 					        			else{
 					        				sumKra[eachKraIndex][index] += eachCandidate[index];
-					        			}	
+					        			}
+					        			
 				        			}
+
 				        		}
 				        		
 				        		
@@ -212,67 +213,67 @@ febData
 								"name":"Titans",
 								"Hardware_IoT":
 									{"feb":
-										{"scale": parseInt(toTal[0]/gieDataList.length), 'kra':sumKra[0]}, 
+										{"scale": Math.round(toTal[0]/gieDataList.length), 'kra':sumKra[0]}, 
 									"april":
-										{"scale": parseInt(toTal[1]/gieDataList.length), 'kra':sumKra[1]},
+										{"scale": Math.round(toTal[1]/gieDataList.length), 'kra':sumKra[1]},
 									"june":
-										{"scale": parseInt(toTal[2]/gieDataList.length), 'kra':sumKra[2]},
+										{"scale": Math.round(toTal[2]/gieDataList.length), 'kra':sumKra[2]},
 									},
 								"AI_ML_Data_Science":
 									{"feb":
-										{"scale": parseInt(toTal[3]/gieDataList.length), 'kra':sumKra[2]}, 
+										{"scale": Math.round(toTal[3]/gieDataList.length), 'kra':sumKra[3]}, 
 									"april":
-										{"scale": parseInt(toTal[4]/gieDataList.length), 'kra':sumKra[3]},
+										{"scale": Math.round(toTal[4]/gieDataList.length), 'kra':sumKra[4]},
 									"june":
-										{"scale": parseInt(toTal[5]/gieDataList.length), 'kra':sumKra[5]},
+										{"scale": Math.round(toTal[5]/gieDataList.length), 'kra':sumKra[5]},
 									},
 								"Software_Application_Development":
 									{"feb":
-										{"scale": parseInt(toTal[6]/gieDataList.length), 'kra':sumKra[6]}, 
+										{"scale": Math.round(toTal[6]/gieDataList.length), 'kra':sumKra[6]}, 
 									"april":
-										{"scale": parseInt(toTal[7]/gieDataList.length), 'kra':sumKra[7]},
+										{"scale": Math.round(toTal[7]/gieDataList.length), 'kra':sumKra[7]},
 									"june":
-										{"scale": parseInt(toTal[8]/gieDataList.length), 'kra':sumKra[8]},
+										{"scale": Math.round(toTal[8]/gieDataList.length), 'kra':sumKra[8]},
 									},
 								"Industry_Product_Design":
 									{"feb":
-										{"scale": parseInt(toTal[9]/gieDataList.length), 'kra':sumKra[9]}, 
+										{"scale": Math.round(toTal[9]/gieDataList.length), 'kra':sumKra[9]}, 
 									"april":
-										{"scale": parseInt(toTal[10]/gieDataList.length), 'kra':sumKra[10]},
+										{"scale": Math.round(toTal[10]/gieDataList.length), 'kra':sumKra[10]},
 									"june":
-										{"scale": parseInt(toTal[11]/gieDataList.length), 'kra':sumKra[11]},
+										{"scale": Math.round(toTal[11]/gieDataList.length), 'kra':sumKra[11]},
 									},
 								"Software_Platforms":
 									{"feb":
-										{"scale": parseInt(toTal[12]/gieDataList.length), 'kra':sumKra[12]}, 
+										{"scale": Math.round(toTal[12]/gieDataList.length), 'kra':sumKra[12]}, 
 									"april":
-										{"scale": parseInt(toTal[13]/gieDataList.length), 'kra':sumKra[13]},
+										{"scale": Math.round(toTal[13]/gieDataList.length), 'kra':sumKra[13]},
 									"june":
-										{"scale": parseInt(toTal[14]/gieDataList.length), 'kra':sumKra[14]},
+										{"scale": Math.round(toTal[14]/gieDataList.length), 'kra':sumKra[14]},
 									},
 								"Programming_Application_Platform":
 									{"feb":
-										{"scale": parseInt(toTal[15]/gieDataList.length), 'kra':sumKra[15]}, 
+										{"scale": Math.round(toTal[15]/gieDataList.length), 'kra':sumKra[15]}, 
 									"april":
-										{"scale": parseInt(toTal[16]/gieDataList.length), 'kra':sumKra[16]},
+										{"scale": Math.round(toTal[16]/gieDataList.length), 'kra':sumKra[16]},
 									"june":
-										{"scale": parseInt(toTal[17]/gieDataList.length), 'kra':sumKra[17]},
+										{"scale": Math.round(toTal[17]/gieDataList.length), 'kra':sumKra[17]},
 									},
 								"IP":
 									{"feb":
-										{"scale": parseInt(toTal[18]/gieDataList.length), 'kra':sumKra[18]}, 
+										{"scale": Math.round(toTal[18]/gieDataList.length), 'kra':sumKra[18]}, 
 									"april":
-										{"scale": parseInt(toTal[19]/gieDataList.length), 'kra':sumKra[19]},
+										{"scale": Math.round(toTal[19]/gieDataList.length), 'kra':sumKra[19]},
 									"june":
-										{"scale": parseInt(toTal[20]/gieDataList.length), 'kra':sumKra[20]},
+										{"scale": Math.round(toTal[20]/gieDataList.length), 'kra':sumKra[20]},
 									},
 								"Innovation":
 									{"feb":
-										{"scale": parseInt(toTal[21]/gieDataList.length), 'kra':sumKra[21]}, 
+										{"scale": Math.round(toTal[21]/gieDataList.length), 'kra':sumKra[21]}, 
 									"april":
-										{"scale": parseInt(toTal[22]/gieDataList.length), 'kra':sumKra[22]},
+										{"scale": Math.round(toTal[22]/gieDataList.length), 'kra':sumKra[22]},
 									"june":
-										{"scale": parseInt(toTal[23]/gieDataList.length), 'kra':sumKra[23]},
+										{"scale": Math.round(toTal[23]/gieDataList.length), 'kra':sumKra[23]},
 									},
 							};
 
